@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Security Minigame</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Modernere Schriftart */
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9; /* Sanfter Hintergrund */
+        }
+
+        #game-container {
+            text-align: center;
+            margin-top: 50px;
+            color: #333; /* Dunklere Schriftfarbe für bessere Lesbarkeit */
+        }
+
+        #word-container {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .word {
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none; /* Entfernen der Grenze */
+            border-radius: 8px;
+            display: inline-block;
+            background-color: #ffffff; /* Weißer Hintergrund */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Schatten für 3D-Effekt */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animation für Interaktion */
+        }
+
+        .word:hover {
+            transform: scale(1.05); /* Vergrößern beim Überfahren */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Stärkerer Schatten beim Überfahren */
+        }
+
+        .correct {
+            background-color: #4CAF50; /* Grün für richtige Antworten */
+            color: white; /* Weiße Schrift auf grünem Hintergrund */
+        }
+
+        .wrong {
+            background-color: #f44336; /* Rot für falsche Antworten */
+            color: white; /* Weiße Schrift auf rotem Hintergrund */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1></h1>
+        <div id="word-container"></div>
+        <p><em>Klicken Sie auf die Wörter, die mit IT-Sicherheit zu tun haben.</em></p>
+    </div>
+
+    <script>
+        var words = ["Firewall", "Verschlüsselung", "Malware", "Passwort", "Authentifizierung", "Phishing", "Virenscanner", "Biometrie", "Zwei-Faktor-Authentifizierung", "DDoS-Angriff", "Ransomware", "Social Engineering", "Keylogger", "Trojaner"];
+        var falseWords = ["Fireball", "Kaffemaschienenwartung", "Schreibblock", "Datenverschleierer", "Authentifizierungs", "Sicherheitsalgorithmusknoten", "Aktenverwaltung", "Datenkodierungsphalanx", "Algenschutz", "Moos"];
+        words = words.concat(falseWords).sort(() => Math.random() - 0.5);
+
+        var wordContainer = document.getElementById("word-container");
+        words.forEach(word => {
+            var wordElement = document.createElement("div");
+            wordElement.classList.add("word");
+            wordElement.textContent = word;
+            wordElement.addEventListener("click", function() {
+                if (isCorrectWord(word)) {
+                    wordElement.classList.add("correct");
+                } else {
+                    wordElement.classList.add("wrong");
+                }
+            });
+            wordContainer.appendChild(wordElement);
+        });
+
+        function isCorrectWord(word) {
+            return ["Firewall", "Verschlüsselung", "Malware", "Passwort", "Authentifizierung", "Phishing", "Virenscanner", "Biometrie", "Zwei-Faktor-Authentifizierung", "DDoS-Angriff", "Ransomware", "Social Engineering", "Keylogger", "Trojaner"].includes(word);
+        }
+    </script>
+</body>
+</html>
