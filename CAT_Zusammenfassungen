@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Passwortsicherheitstipps</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  .bubble {
+    background-color: #FFB6C1;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 30px;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .bubble:hover {
+    transform: scale(1.05);
+  }
+  .tip {
+    display: none;
+    position: absolute;
+    width: calc(100% - 80px);
+    padding: 20px;
+    background-color: #4080ff;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 30px;
+    z-index: 1;
+    transform: translateY(20px);
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .bubble:hover .tip {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="bubble">Starke Passwörter schützen
+  <div class="tip">Starke Passwörter, die Buchstaben, Zahlen und Sonderzeichen kombinieren, sind entscheidend für den Schutz vor Cyberangriffen und Identitätsdiebstahl.</div>
+</div>
+
+<div class="bubble">Passwort-Management
+  <div class="tip">Vermeide einfache Wörter und häufige Kombinationen. Nutze Passwort-Manager für sichere Speicherung und Verwaltung deiner Passwörter.</div>
+</div>
+
+<div class="bubble">Phishing-Wachsamkeit
+  <div class="tip">Sei skeptisch gegenüber Phishing-Versuchen, die durch verdächtige E-Mails und Links erfolgen. Sicherheitsbewusstes Verhalten ist unerlässlich.</div>
+</div>
+
+<div class="bubble">Sichere Aufbewahrung
+  <div class="tip">Notiere Passwörter niemals auf Papier unter der Tastatur. Verwende verschlüsselte digitale Notizblöcke oder Passwort-Manager.</div>
+</div>
+
+<div class="bubble">Passwort-Hacking verstehen
+  <div class="tip">Hacker verwenden Passwortlisten für Brute-Force-Angriffe. Ein einfaches Passwort kann innerhalb von Sekunden gehackt werden. Halte deine Passwörter komplex und aktualisiere sie regelmäßig.</div>
+</div>
+
+</body>
+</html>
