@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Security Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Hintergrundfarbe beibehalten */
+        }
+
+        .bubble-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .bubble {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 2px solid black;
+            color: black;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.2s ease; /* Hinzufügen von Schattenanimation */
+            position: relative;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
+        }
+
+        .bubble:hover {
+            transform: scale(1.1); /* Skalierung beim Hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Stärkerer Schatten beim Hover */
+        }
+
+        .bubble::before {
+            content: attr(title);
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffd4e5; /* Farbe des Tooltip-Hintergrunds beibehalten */
+            padding: 10px 15px;
+            border-radius: 10px;
+            z-index: 2;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0s linear 0.3s; /* Verzögert das Verschwinden des Tooltips */
+            width: 220px; /* Leichte Anpassung der Breite für besseren Textfluss */
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16); /* Schatten für Tooltip */
+        }
+
+        .bubble:hover::before {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s; /* Entfernen der Verzögerung beim Erscheinen */
+        }
+
+        .correct, .wrong {
+            background-color: transparent; /* Beibehalten der transparenten Hintergründe */
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container">
+        <div class="bubble correct" title="Richtig: Das Passwort wird auf dem Bildschirm angezeigt, wo es von anderen gesehen werden könnte.">Passwort wird angezeigt</div>
+        <div class="bubble wrong" title="Falsch: Die Pinsel könnten nass sein und auf die Elektronik tropfen">Nasse Pinsel</div>
+        <div class="bubble wrong" title="Falsch: Die Storen vor dem Fenster sind hoch gekurbelt.">Hochgekurbelte Storen</div>
+        <div class="bubble correct" title="Richtig: Es gibt einen &quot;Caution&quot;-Aufkleber auf einer Schublade, was darauf hindeuten könnte, dass dort sensible Informationen unsicher aufbewahrt werden.">"Caution"-Aufkleber auf Schublade</div>
+        <div class="bubble correct" title="Richtig: Persönliche Geräte wie das Smartphone und der Laptop scheinen ungesichert und könnten leicht zugänglich sein, was ein Sicherheitsrisiko darstellt.">Ungesicherte persönliche Geräte</div>
+        <div class="bubble wrong" title="Falsch: Es gibt zu viele Pflanzen im Raum, was ein Sicherheitsrisiko darstellt.">Zu viele Pflanzen im Raum</div>
+        <div class="bubble correct" title="Richtig: Falls die Person vom Arbeitsplatz weggeht und nur eines der Geräte nicht sperrt, wird der Angreiffer leichtes Spiel haben ">Sicherheitsrisiko Arbeitsplatz verlassen</div>
+    </div>
+</body>
+</html>
