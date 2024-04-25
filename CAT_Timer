@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachable Timer</title>
+  <style>
+    .timer {
+      text-align: center;
+      margin-top: 50px;
+      border: 2px solid #FFB6C1;
+      padding: 20px;
+    }
+
+    .display {
+      font-size: 36px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: black; /* Textfarbe in Buttons auf Schwarz setzen */
+      background: #FFB6C1; /* Hintergrundfarbe der Buttons */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background: #FFD1DA; /* Hellere Hintergrundfarbe beim Überfahren mit der Maus */
+      transform: scale(1.05); /* Vergrößern beim Überfahren mit der Maus */
+    }
+
+    button:active {
+      transform: scale(0.95); /* Verkleinern beim Klicken */
+    }
+  </style>
+</head>
+<body>
+  <div class="timer">
+    <div class="display">
+      <span class="hours">00</span>:
+      <span class="minutes">15</span>:
+      <span class="seconds">00</span>
+    </div>
+    <p>Deine verbleibene Zeit für diesen Tag, behalte die Zeit im Auge! Nach Ablaufen dieser wirst Du automatisch zum nächsten TAG weitergeleitet.  Pro Abschnitt hast Du immer ein Timer mit der optimalen Zeit. </p>
+    <button id="startButton">Start</button>
+  </div>
+
+  <script>
+    let timer;
+    let hours = 0;
+    let minutes = 15; // Startzeit 15 Minuten
+    let seconds = 0;
+
+    function startTimer() {
+      if (!timer) {
+        timer = setInterval(decrementTimer, 1000);
+      }
+    }
+
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function decrementTimer() {
+      if (seconds === 0) {
+        if (minutes === 0) {
+          if (hours === 0) {
+            stopTimer();
+            window.location.href = "https://mjcybersecurity.teachable.com/courses/it-security-am-arbeitsplatz/lectures/52917689"; // URL Redirect
+            return;
+          }
+          hours--;
+          minutes = 59;
+        }
+        minutes--;
+        seconds = 59;
+      } else {
+        seconds--;
+      }
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.querySelector('.hours').textContent = pad(hours);
+      document.querySelector('.minutes').textContent = pad(minutes);
+      document.querySelector('.seconds').textContent = pad(seconds);
+    }
+
+    function pad(number) {
+      return (number < 10) ? '0' + number : number;
+    }
+
+    document.getElementById('startButton').addEventListener('click', startTimer);
+  </script>
+</body>
+</html>
